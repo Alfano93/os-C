@@ -12,7 +12,7 @@
 # even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.
 
-MAKE=make
+
 
 
 
@@ -125,23 +125,23 @@ am_libjansson_la_OBJECTS = dump.lo error.lo hashtable.lo \
 	hashtable_seed.lo load.lo memory.lo pack_unpack.lo \
 	strbuffer.lo strconv.lo utf.lo value.lo
 libjansson_la_OBJECTS = $(am_libjansson_la_OBJECTS)
-AM_V_lt = $(am__v_lt_1)
-am__v_lt_ = $(am__v_lt_1)
+AM_V_lt = $(am__v_lt_$(V))
+am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 am__v_lt_1 = 
 libjansson_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(libjansson_la_LDFLAGS) $(LDFLAGS) -o $@
-AM_V_P = $(am__v_P_1)
-am__v_P_ = $(am__v_P_1)
+AM_V_P = $(am__v_P_$(V))
+am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
 am__v_P_1 = :
-AM_V_GEN = $(am__v_GEN_1)
-am__v_GEN_ = $(am__v_GEN_1)
+AM_V_GEN = $(am__v_GEN_$(V))
+am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN     " $@;
 am__v_GEN_1 = 
-AM_V_at = $(am__v_at_1)
-am__v_at_ = $(am__v_at_1)
+AM_V_at = $(am__v_at_$(V))
+am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))
 am__v_at_0 = @
 am__v_at_1 = 
 DEFAULT_INCLUDES = -I. -I$(top_builddir)
@@ -154,16 +154,16 @@ LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) \
 	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CFLAGS) $(CFLAGS)
-AM_V_CC = $(am__v_CC_1)
-am__v_CC_ = $(am__v_CC_1)
+AM_V_CC = $(am__v_CC_$(V))
+am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))
 am__v_CC_0 = @echo "  CC      " $@;
 am__v_CC_1 = 
 CCLD = $(CC)
 LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-AM_V_CCLD = $(am__v_CCLD_1)
-am__v_CCLD_ = $(am__v_CCLD_1)
+AM_V_CCLD = $(am__v_CCLD_$(V))
+am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(libjansson_la_SOURCES)
@@ -194,17 +194,17 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /root/jansson-2.7/missing aclocal-1.14
+ACLOCAL = ${SHELL} /root/os-C/jansson-2.7/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_CFLAGS = -Wall -Wextra -Wdeclaration-after-statement
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /root/jansson-2.7/missing autoconf
-AUTOHEADER = ${SHELL} /root/jansson-2.7/missing autoheader
-AUTOMAKE = ${SHELL} /root/jansson-2.7/missing automake-1.14
+AUTOCONF = ${SHELL} /root/os-C/jansson-2.7/missing autoconf
+AUTOHEADER = ${SHELL} /root/os-C/jansson-2.7/missing autoheader
+AUTOMAKE = ${SHELL} /root/os-C/jansson-2.7/missing automake-1.14
 AWK = mawk
 CC = gcc
-CCDEPMODE = depmode=none
+CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
@@ -234,7 +234,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /root/jansson-2.7/missing makeinfo
+MAKEINFO = ${SHELL} /root/os-C/jansson-2.7/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -253,18 +253,18 @@ PACKAGE_VERSION = 2.7
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /bin/sed
-SET_MAKE = MAKE=make
+SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 2.7
-abs_builddir = /root/jansson-2.7/src
-abs_srcdir = /root/jansson-2.7/src
-abs_top_builddir = /root/jansson-2.7
-abs_top_srcdir = /root/jansson-2.7
+abs_builddir = /root/os-C/jansson-2.7/src
+abs_srcdir = /root/os-C/jansson-2.7/src
+abs_top_builddir = /root/os-C/jansson-2.7
+abs_top_srcdir = /root/os-C/jansson-2.7
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
-am__include = #
+am__include = include
 am__leading_dot = .
 am__quote = 
 am__tar = $${TAR-tar} chof - "$$tardir"
@@ -289,7 +289,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /root/jansson-2.7/install-sh
+install_sh = ${SHELL} /root/os-C/jansson-2.7/install-sh
 json_have_localeconv = 1
 json_have_long_long = 1
 json_inline = inline
@@ -419,38 +419,38 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-# ./$(DEPDIR)/dump.Plo
-# ./$(DEPDIR)/error.Plo
-# ./$(DEPDIR)/hashtable.Plo
-# ./$(DEPDIR)/hashtable_seed.Plo
-# ./$(DEPDIR)/load.Plo
-# ./$(DEPDIR)/memory.Plo
-# ./$(DEPDIR)/pack_unpack.Plo
-# ./$(DEPDIR)/strbuffer.Plo
-# ./$(DEPDIR)/strconv.Plo
-# ./$(DEPDIR)/utf.Plo
-# ./$(DEPDIR)/value.Plo
+include ./$(DEPDIR)/dump.Plo
+include ./$(DEPDIR)/error.Plo
+include ./$(DEPDIR)/hashtable.Plo
+include ./$(DEPDIR)/hashtable_seed.Plo
+include ./$(DEPDIR)/load.Plo
+include ./$(DEPDIR)/memory.Plo
+include ./$(DEPDIR)/pack_unpack.Plo
+include ./$(DEPDIR)/strbuffer.Plo
+include ./$(DEPDIR)/strconv.Plo
+include ./$(DEPDIR)/utf.Plo
+include ./$(DEPDIR)/value.Plo
 
 .c.o:
-#	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-	$(AM_V_CC)source='$<' object='$@' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
+	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	$(AM_V_CC)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
 
 .c.obj:
-#	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-	$(AM_V_CC)source='$<' object='$@' libtool=no \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	$(AM_V_CC)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 .c.lo:
-#	$(AM_V_CC)$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
-	$(AM_V_CC)source='$<' object='$@' libtool=yes \
-	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-	$(AM_V_CC_no)$(LTCOMPILE) -c -o $@ $<
+	$(AM_V_CC)$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+#	$(AM_V_CC)source='$<' object='$@' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LTCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -17,7 +17,7 @@
 #define OS_USERNAME    "your_username"
 #define OS_PASSWORD    "your_password"
 #define OS_TENANT_NAME "your_tenant_name"
-#define OS_AUTH_URL    "your_auth_url" /* typically found in the project's auth and security tab of horizon */ 
+#define OS_AUTH_URL    "your_auth_url/v2.0" /* typically found in the project's auth and security tab of horizon */ 
 #define OS_NO_CACHE    1 
 
 

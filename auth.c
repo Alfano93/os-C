@@ -1,4 +1,4 @@
-#include "openrc.h"
+#include "openrc.c"
 
 static int newline_offset(const char *text){
     const char *newline = strchr(text, '\n');
@@ -27,7 +27,7 @@ static size_t write_response(void *ptr, size_t size, size_t nmemb, void *stream)
     return size * nmemb;
 }
 
-static char *request(const char *url){
+static char *POST_request(const char *url, const char *json_request){
     CURL *curl = NULL;
     CURLcode status;
     struct curl_slist *headers = NULL;
@@ -67,6 +67,7 @@ static char *request(const char *url){
     };
 
     curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS,json_request);
 
     /* openstack headers */
     headers = curl_slist_append(headers, "Content-Type: application/json");
@@ -110,6 +111,54 @@ static char *request(const char *url){
     curl_global_cleanup();
 
     /* zero-terminate the result */
-    data[write_result.pos] = '\0'
+    data[write_result.pos] = '\0';
     return data;
-} 
+}
+
+int auth(){
+    char *text;
+    char url[URL_SIZE];
+    char request[BUFFER_SIZE] ;
+
+    json_t *root;
+    json_error_t error;
+    FILE * output_file;
+
+    output_file = fopen("output.txt", "w+");
+
+    snprintf(url, URL_SIZE, OS_AUTH_URL);
+    strcat(url,"/tokens");
+
+    strcat(request, "'{ auth: { tenantName: '");
+    strcat(request, OS_TENANT_NAME);
+    strcat(request, "', passwordCredentials: { username: '");
+    strcat(request, OS_USERNAME);
+    strcat(request, "' , password: '");
+    strcat(request, OS_PASSWORD);
+    strcat(request, "' }}}'");
+
+    
+    /*
+    printf("url: %s \n request: %s \n",url,request); //DEBUG 
+    */
+    text = POST_request(url,request);
+    if(!text)
+        return 1;
+
+    root = json_loads(text, 0, &error);
+
+    if(!root){
+        fprintf(stderr, "error: on line %d: %s\n", error.line, error.text);
+        return 1;
+    }
+
+    printf("%s", json_dumps(root,JSON_INDENT(1)));
+
+    return 0;
+}
+
+int main(){
+    int auth_test = 0;
+    auth_test = auth();
+    return 0;
+}  
