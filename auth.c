@@ -118,30 +118,36 @@ static char *POST_request(const char *url, const char *json_request){
 int auth(){
     char *text;
     char url[URL_SIZE];
-    char request[BUFFER_SIZE] ;
 
-    json_t *root;
+    json_t *root, *auth, *request;
     json_error_t error;
-    FILE * output_file;
-
-    output_file = fopen("output.txt", "w+");
 
     snprintf(url, URL_SIZE, OS_AUTH_URL);
     strcat(url,"/tokens");
 
-    strcat(request, "'{ auth: { tenantName: '");
-    strcat(request, OS_TENANT_NAME);
-    strcat(request, "', passwordCredentials: { username: '");
-    strcat(request, OS_USERNAME);
-    strcat(request, "' , password: '");
-    strcat(request, OS_PASSWORD);
-    strcat(request, "' }}}'");
+    json_t *tenantName, *username, *password,*credentials;
+    tenantName = json_string(OS_TENANT_NAME);
+    username = json_string(OS_USERNAME);
+    password = json_string(OS_PASSWORD);
+    
+    credentials = json_object();
+    json_object_set(credentials, "username", username);
+    json_object_set(credentials, "password", password);
+
+    auth = json_object();
+    json_object_set(auth, "tenantName", tenantName);
+    json_object_set(auth, "passwordCredentials", credentials);
+
+    request = json_object();
+    json_object_set(request, "auth", auth);
 
     
     /*
     printf("url: %s \n request: %s \n",url,request); //DEBUG 
     */
-    text = POST_request(url,request);
+    
+    text = POST_request(url, json_dumps(request, JSON_INDENT(1)));
+    
     if(!text)
         return 1;
 
