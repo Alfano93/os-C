@@ -17,10 +17,10 @@ The jansson-2.7 library must be built and configured for the node that os-C will
  `make check`
  `make install`
  
- # libcurl #
+# libcurl #
  
  Libcurl also needs to be installed on the node. Do `curl-config --cflags` to see the possible packages and install one with apt-get. 
  
- # One more thing... #
+# One more thing... #
  
  make sure you have the compiler installed...
